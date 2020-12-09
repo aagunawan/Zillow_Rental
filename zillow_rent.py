@@ -4,6 +4,8 @@ import requests
 import unicodecsv as csv
 import argparse
 import json
+import pymongo
+from pymongo import MongoClient
 
 
 def clean(text):
@@ -50,12 +52,18 @@ def write_data_to_csv(data):
     # saving scraped data to csv.
 
     with open("properties-%s.csv" % (zipcode), 'wb') as csvfile:
-        fieldnames = ['title', 'address', 'city', 'state', 'postal_code', 'price', 'facts and features', 'daysOnZillow', 'url']
+        fieldnames = ['title', 'address', 'city', 'state', 'postal_code', 'price', 'bed', 'bath', 'area', 'daysOnZillow', 'url']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
 
+def write_to_db(data, zipcode):
+    cluster = MongoClient("mongodb+srv://aagunawan:dedeku88@cluster0.qfiad.mongodb.net/<dbname>?retryWrites=true&w=majority")
+    db = cluster["rental"]
+    collection = db["listings"] 
+    collection.drop()
+    collection.insert_many(data)
 
 def get_response(url):
     # Getting response from zillow.com.
@@ -108,7 +116,10 @@ def get_data_from_json(raw_json_data):
                         'state': state,
                         'postal_code': postal_code,
                         'price': price,
-                        'facts and features': info,
+                        'bed': bedrooms,
+                        'bath': bathrooms,
+                        'area': area,
+                        # 'facts and features': info,
                         'daysOnZillow': daysOnZillow,
                         'url': property_url,
                         'title': title}
@@ -147,42 +158,42 @@ def parse(zipcode, filter=None):
         raw_json_data = parser.xpath('//script[@data-zrr-shared-data-key="mobileSearchPageStore"]//text()')
         return get_data_from_json(raw_json_data)
 
-    print("parsing from html page")
-    properties_list = []
-    for properties in search_results:
-        raw_address = properties.xpath(".//span[@itemprop='address']//span[@itemprop='streetAddress']//text()")
-        raw_city = properties.xpath(".//span[@itemprop='address']//span[@itemprop='addressLocality']//text()")
-        raw_state = properties.xpath(".//span[@itemprop='address']//span[@itemprop='addressRegion']//text()")
-        raw_postal_code = properties.xpath(".//span[@itemprop='address']//span[@itemprop='postalCode']//text()")
-        raw_price = properties.xpath(".//span[@class='zsg-photo-card-price']//text()")
-        raw_info = properties.xpath(".//span[@class='zsg-photo-card-info']//text()")
-        raw_daysOnZillow = properties.xpath(".//span[@class='zsg-photo-card-broker-name']//text()")
-        url = properties.xpath(".//a[contains(@class,'overlay-link')]/@href")
-        raw_title = properties.xpath(".//h4//text()")
+    # print("parsing from html page")
+    # properties_list = []
+    # for properties in search_results:
+    #     raw_address = properties.xpath(".//span[@itemprop='address']//span[@itemprop='streetAddress']//text()")
+    #     raw_city = properties.xpath(".//span[@itemprop='address']//span[@itemprop='addressLocality']//text()")
+    #     raw_state = properties.xpath(".//span[@itemprop='address']//span[@itemprop='addressRegion']//text()")
+    #     raw_postal_code = properties.xpath(".//span[@itemprop='address']//span[@itemprop='postalCode']//text()")
+    #     raw_price = properties.xpath(".//span[@class='zsg-photo-card-price']//text()")
+    #     raw_info = properties.xpath(".//span[@class='zsg-photo-card-info']//text()")
+    #     raw_daysOnZillow = properties.xpath(".//span[@class='zsg-photo-card-broker-name']//text()")
+    #     url = properties.xpath(".//a[contains(@class,'overlay-link')]/@href")
+    #     raw_title = properties.xpath(".//h4//text()")
 
-        address = clean(raw_address)
-        city = clean(raw_city)
-        state = clean(raw_state)
-        postal_code = clean(raw_postal_code)
-        price = clean(raw_price)
-        info = clean(raw_info).replace(u"\xb7", ',')
-        daysOnZillow = clean(raw_daysOnZillow)
-        title = clean(raw_title)
-        property_url = "https://www.zillow.com" + url[0] if url else None
-        # is_forsale = properties.xpath('.//span[@class="zsg-icon-for-sale"]')
+    #     address = clean(raw_address)
+    #     city = clean(raw_city)
+    #     state = clean(raw_state)
+    #     postal_code = clean(raw_postal_code)
+    #     price = clean(raw_price)
+    #     info = clean(raw_info).replace(u"\xb7", ',')
+    #     daysOnZillow = clean(raw_daysOnZillow)
+    #     title = clean(raw_title)
+    #     property_url = "https://www.zillow.com" + url[0] if url else None
+    #     # is_forsale = properties.xpath('.//span[@class="zsg-icon-for-sale"]')
 
-        properties = {'address': address,
-                      'city': city,
-                      'state': state,
-                      'postal_code': postal_code,
-                      'price': price,
-                      'facts and features': info,
-                      'daysOnZillow': daysOnZillow,
-                      'url': property_url,
-                      'title': title}
-        # if is_forsale:
-        properties_list.append(properties)
-    return properties_list
+    #     properties = {'address': address,
+    #                   'city': city,
+    #                   'state': state,
+    #                   'postal_code': postal_code,
+    #                   'price': price,
+    #                   'facts and features': info,
+    #                   'daysOnZillow': daysOnZillow,
+    #                   'url': property_url,
+    #                   'title': title}
+    #     # if is_forsale:
+    #     properties_list.append(properties)
+    # return properties_list
 
 
 if __name__ == "__main__":
@@ -203,5 +214,6 @@ if __name__ == "__main__":
     print ("Fetching data for %s" % (zipcode))
     scraped_data = parse(zipcode, sort)
     if scraped_data:
-        print ("Writing data to output file")
-        write_data_to_csv(scraped_data)
+        print ("Writing new data to database")
+        # write_data_to_csv(scraped_data)
+        write_to_db(scraped_data, zipcode)

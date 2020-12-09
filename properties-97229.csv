@@ -1,0 +1,27 @@
+title,address,city,state,postal_code,price,bed,bath,area,daysOnZillow,url
+House for rent,3590 NW 183rd Ave,Portland,OR,97229,"$1,995/mo",3,1.5,1155,0,https://www.zillow.com/homedetails/3590-NW-183rd-Ave-Portland-OR-97229/48613436_zpid/
+House for rent,2565 NW 121st Pl,Portland,OR,97229,"$3,095/mo",4,3.0,2870,0,https://www.zillow.com/homedetails/2565-NW-121st-Pl-Portland-OR-97229/48611780_zpid/
+Apartment for rent,15064 NW Central Dr APT 1301,Portland,OR,97229,"$1,650/mo",2,1.0,904,0,https://www.zillow.com/homedetails/15064-NW-Central-Dr-APT-1301-Portland-OR-97229/2089938848_zpid/
+Apartment for rent,19470 NW Mahama Pl APT B,Portland,OR,97229,"$1,395/mo",2,1.5,1000,0,https://www.zillow.com/homedetails/19470-NW-Mahama-Pl-APT-B-Portland-OR-97229/2112309714_zpid/
+House for rent,9587 NW Caxton Ln,Portland,OR,97229,"$2,995/mo",4,2.5,2800,1,https://www.zillow.com/homedetails/9587-NW-Caxton-Ln-Portland-OR-97229/48576529_zpid/
+House for rent,4290 NW Columbia Ave,Portland,OR,97229,"$2,500/mo",4,3.0,2630,1,https://www.zillow.com/homedetails/4290-NW-Columbia-Ave-Portland-OR-97229/48618292_zpid/
+House for rent,14923 NW Rossetta St,Portland,OR,97229,"$2,400/mo",4,2.5,2000,1,https://www.zillow.com/homedetails/14923-NW-Rossetta-St-Portland-OR-97229/123908195_zpid/
+Apartment for rent,17422 NW Springville Rd #204,Portland,OR,97229,"$1,450/mo",2,2.0,1029,22,https://www.zillow.com/homedetails/17422-NW-Springville-Rd-204-Portland-OR-97229/2077134033_zpid/
+Townhouse for rent,6856 NW 165th Ave,Portland,OR,97229,"$2,300/mo",3,3.0,1826,2,https://www.zillow.com/homedetails/6856-NW-165th-Ave-Portland-OR-97229/121265582_zpid/
+Apartment for rent,15056 NW Central Dr APT 705,Portland,OR,97229,"$1,225/mo",1,1.0,670,4,https://www.zillow.com/homedetails/15056-NW-Central-Dr-APT-705-Portland-OR-97229/2080106336_zpid/
+House for rent,5295 NW Skycrest Pkwy,Portland,OR,97229,"$2,950/mo",5,3.0,2493,4,https://www.zillow.com/homedetails/5295-NW-Skycrest-Pkwy-Portland-OR-97229/52693299_zpid/
+House for rent,14629 NW Dawnwood Dr,Portland,OR,97229,"$2,695/mo",4,2.5,2535,4,https://www.zillow.com/homedetails/14629-NW-Dawnwood-Dr-Portland-OR-97229/48580242_zpid/
+House for rent,15327 NW Nightshade Dr,Portland,OR,97229,"$2,195/mo",3,2.5,1625,5,https://www.zillow.com/homedetails/15327-NW-Nightshade-Dr-Portland-OR-97229/48582456_zpid/
+House for rent,14736 NW Benny Dr,Portland,OR,97229,"$1,900/mo",2,2.5,1310,5,https://www.zillow.com/homedetails/14736-NW-Benny-Dr-Portland-OR-97229/52694303_zpid/
+House for rent,10340 NW Engleman St,Portland,OR,97229,"$5,000/mo",5,3.5,4316,5,https://www.zillow.com/homedetails/10340-NW-Engleman-St-Portland-OR-97229/53913156_zpid/
+Townhouse for rent,712 NW 118th Ave,Portland,OR,97229,"$1,800/mo",2,2.5,1129,5,https://www.zillow.com/homedetails/712-NW-118th-Ave-Portland-OR-97229/71452307_zpid/
+Apartment for rent,2825 NW Kennedy Ct,Portland,OR,97229,"$2,000/mo",2,2.0,1440,6,https://www.zillow.com/homedetails/2825-NW-Kennedy-Ct-Portland-OR-97229/2084700353_zpid/
+Condo for rent,17516 NW Springville Rd UNIT B-11,Portland,OR,97229,"$1,800/mo",3,2.0,1313,7,https://www.zillow.com/homedetails/17516-NW-Springville-Rd-UNIT-B-11-Portland-OR-97229/2076996345_zpid/
+House for rent,16883 NW Anita St,Portland,OR,97229,"$2,795/mo",4,2.5,2163,7,https://www.zillow.com/homedetails/16883-NW-Anita-St-Portland-OR-97229/186389087_zpid/
+Townhouse for rent,370 NW 116th Ave UNIT 102,Beaverton,OR,97229,"$1,750/mo",2,2.5,1104,8,https://www.zillow.com/homedetails/370-NW-116th-Ave-UNIT-102-Beaverton-OR-97229/103775335_zpid/
+Apartment for rent,19465 NW Mahama Pl APT B,Portland,OR,97229,"$1,345/mo",2,1.5,928,8,https://www.zillow.com/homedetails/19465-NW-Mahama-Pl-APT-B-Portland-OR-97229/2113088150_zpid/
+House for rent,14910 NW Marguerite Ln,Portland,OR,97229,"$2,150/mo",4,2.5,1537,41,https://www.zillow.com/homedetails/14910-NW-Marguerite-Ln-Portland-OR-97229/52694190_zpid/
+House for rent,17209 NW Millbrook St,Portland,OR,97229,"$2,095/mo",4,2.5,2072,13,https://www.zillow.com/homedetails/17209-NW-Millbrook-St-Portland-OR-97229/52696615_zpid/
+House for rent,10805 NW Cornell Rd,Portland,OR,97229,"$3,800/mo",3,2.5,3001,13,https://www.zillow.com/homedetails/10805-NW-Cornell-Rd-Portland-OR-97229/186247313_zpid/
+Apartment for rent,575 NW 118th Ave UNIT 103,Portland,OR,97229,"$1,695/mo",2,2.5,1129,13,https://www.zillow.com/homedetails/575-NW-118th-Ave-UNIT-103-Portland-OR-97229/2077043797_zpid/
+House for rent,10790 NW Cornell Rd,Portland,OR,97229,"$1,950/mo",3,2.0,1339,14,https://www.zillow.com/homedetails/10790-NW-Cornell-Rd-Portland-OR-97229/48616084_zpid/
